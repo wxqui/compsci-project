@@ -1,0 +1,50 @@
+import sqlite3
+
+
+conn = sqlite3.connect('10Banks.db')
+
+c = conn.cursor()
+
+# Create table
+c.execute('''CREATE TABLE Account
+             (AccountID text, CustomerID int,  Balance real)''')
+
+# Insert data
+c.execute("INSERT INTO Account VALUES ('BankAccount1',1,3505.14)")
+c.execute("INSERT INTO Account VALUES ('BankAccount2',2,1505.00)")
+c.execute("INSERT INTO Account VALUES ('BankAccount3',3,1205.75)")
+c.execute("INSERT INTO Account VALUES ('BankAccount4',7,3505.14)")
+c.execute("INSERT INTO Account VALUES ('BankAccount5',2,3505.14)")
+c.execute("INSERT INTO Account VALUES ('BankAccount6',5,3505.14)")
+c.execute("INSERT INTO Account VALUES ('BankAccount7',4,3505.14)")
+c.execute("INSERT INTO Account VALUES ('BankAccount8',9,3505.14)")
+c.execute("INSERT INTO Account VALUES ('BankAccount9',10,3505.14)")
+c.execute("INSERT INTO Account VALUES ('BankAccount10',16,3505.14)")
+
+
+
+# Create table
+c.execute('''CREATE TABLE Customer
+             (CustomerID int,  FirstName text, LastName text)''')
+
+# Insert data
+c.execute("INSERT INTO Customer VALUES (1,'Jayden','Jubilo')")
+c.execute("INSERT INTO Customer VALUES (2,'John','Guzman')")
+c.execute("INSERT INTO Customer VALUES (3,'Matthew','Castilliano')")
+c.execute("INSERT INTO Customer VALUES (4,'Lewis','Clark')")
+c.execute("INSERT INTO Customer VALUES (5,'Jamie','Cotton')")
+c.execute("INSERT INTO Customer VALUES (6,'Nicholas','Bale')")
+c.execute("INSERT INTO Customer VALUES (7,'Enzo','Garcia')")
+c.execute("INSERT INTO Customer VALUES (8,'Joshua','Galvan')")
+c.execute("INSERT INTO Customer VALUES (9,'Elijah','Villena')")
+c.execute("INSERT INTO Customer VALUES (10,'Muhammad','Imran')")
+c.execute("INSERT INTO Customer VALUES (11,'Tommy','Henderson-Thynne')")
+c.execute("INSERT INTO Customer VALUES (12,'Praveet','Khambhaita')")
+
+
+# Save (commit) the changes
+conn.commit()
+
+# We can also close the connection if we are done with it.
+# Just be sure any changes have been committed or they will be lost.
+conn.close()
